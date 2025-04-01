@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import homeStyles from './Home.module.css'
-import { getSortedPostsData } from '../lib/post'
+import { getSortedPostsData } from '@/lib/post'
 
 export default function Home() {
   const allPostsData = getSortedPostsData()
@@ -18,7 +19,7 @@ export default function Home() {
             <li
               className={homeStyles.listItem}
               key={id}>
-              <a>{title}</a>
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={homeStyles.lightText}>{date}</small>
             </li>
