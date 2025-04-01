@@ -1,5 +1,6 @@
 import { getPostData } from '@/lib/post'
 import homeStyles from '../../Home.module.css'
+import postStyle from '../../Post.module.css'
 import 'react'
 import { Metadata } from 'next'
 
@@ -37,10 +38,12 @@ export default async function Post({
   const { id } = await params
   const postData: Post = await getPostData(id)
   return (
-    <article>
-      <h1 className={homeStyles.headingXl}>{postData.title}</h1>
-      <div className={homeStyles.lightText}>{postData.date}</div>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </article>
+    <div className={postStyle.container}>
+      <article>
+        <h1 className={homeStyles.headingLg}>{postData.title}</h1>
+        <div className={homeStyles.lightText}>{postData.date}</div>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
+    </div>
   )
 }

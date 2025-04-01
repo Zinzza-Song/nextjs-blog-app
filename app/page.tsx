@@ -6,7 +6,7 @@ export default function Home() {
   const allPostsData = getSortedPostsData()
 
   return (
-    <div>
+    <div className={homeStyles.container}>
       <section className={homeStyles.headingMd}>
         <p>[zinzza-Song Introduction]</p>
         <p>(This is a website)</p>
